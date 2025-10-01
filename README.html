@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>wy so sirius</title>
+</head>
+<style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #0a090a; /* Фон */
+            margin: 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            cursor: pointer;
+            box-shadow: 0 0 20px 10px #f20079; /* Свечение */
+            border-radius: 10px; /* Скругление углов */
+        }
+    </style>
+<body>
+    <img src="jonkla.jpg" id="myImage"/>
+    <audio src="The Jonkler.mp3" loop="" id="myAudio">
+    <!-- Your browser does not support the audio element. -->
+    </audio>    
+    <script>
+        const audio = document.getElementById('myAudio');
+        const image = document.getElementById('myImage');
+
+        image.addEventListener('click', function() {
+            audio.play(); // Звук
+
+            // СПАМ
+            function spamNotifications() {
+                if (document.visibilityState === 'visible') {
+                    new Notification('tun tun why so serious tun tun hehehe tun tun hehehe');
+                }
+            }
+
+            // Запрос на спам
+            if (Notification.permission !== 'granted') {
+                Notification.requestPermission().then(function(permission) {
+                    if (permission === 'granted') {
+                        const intervalId = setInterval(spamNotifications, 100); // Интервал спама
+
+                        // Остановить спам через 5 минут (300000 мс)
+                        setTimeout(() => {
+                            clearInterval(intervalId); // Остановить интервал
+                        }, 300000); // 5 минут = 300000 мс
+                    }
+                });
+            } else {
+                const intervalId = setInterval(spamNotifications, 100); // Интервал спама
+
+                // Остановка спама
+                setTimeout(() => {
+                    clearInterval(intervalId); // Остановка
+                }, 300000); // 5минут
+            }
+        });
+    </script>
+</body>
+</html>
